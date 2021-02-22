@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/vitorrafael/net-promoter-score-nlw4.git",
   "author": "vitorrafael <vrsilveira07@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
