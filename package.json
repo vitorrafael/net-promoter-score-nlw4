@@ -5,6 +5,9 @@
   "repository": "https://github.com/vitorrafael/net-promoter-score-nlw4.git",
   "author": "vitorrafael <vrsilveira07@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --ignore-watch node_modules src/server.ts"
+  },
   "dependencies": {
     "express": "^4.17.1"
   },
