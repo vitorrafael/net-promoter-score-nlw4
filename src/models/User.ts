@@ -8,10 +8,10 @@ export class User {
     readonly id: String;
 
     @Column()
-    name: String;
+    name: string;
 
     @Column()
-    email: String;
+    email: string;
 
     @CreateDateColumn()
     created_at: Date;

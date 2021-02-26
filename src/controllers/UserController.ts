@@ -23,7 +23,7 @@ export default class UserController {
         return response.status(201).json(user);
     }
 
-    static async validateUserAlreadyExistsByEmail(email: String) {
+    static async validateUserAlreadyExistsByEmail(email: string) {
         const userRepository = getCustomRepository(UserRepository);
         const user = await userRepository.findOne({ email });
         return Boolean(user);
