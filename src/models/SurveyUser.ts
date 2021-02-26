@@ -1,7 +1,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity("surveys_table")
+@Entity("surveys_users")
 export default class SurveyUser {
 
     @PrimaryColumn()
