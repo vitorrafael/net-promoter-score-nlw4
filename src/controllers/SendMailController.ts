@@ -29,12 +29,18 @@ export default class SendMailController {
             });
         }
 
-        const surveyUser = surveyUserRepository.create({
-            user_id: user.id,
-            survey_id: survey_id
+        let surveyUser = await surveyUserRepository.findOne({
+            where: [{user_id: user.id}, {value: null}]
         });
 
-        surveyUserRepository.save(surveyUser);
+        if (!surveyUser) {
+            surveyUser = surveyUserRepository.create({
+                user_id: user.id,
+                survey_id: survey_id
+            });
+
+            surveyUserRepository.save(surveyUser);
+        }
 
         const emailVariables = {
             name: user.name,
@@ -43,6 +49,7 @@ export default class SendMailController {
             user_id: user.id,
             link: process.env.URL_MAIL
         }
+        
         const npsPath = path.resolve(__dirname, "..", "views", "emails", "npsMail.hbs");
         await SendMailService.execute(email, survey.title, emailVariables, npsPath);
 
