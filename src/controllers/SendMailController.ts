@@ -30,7 +30,7 @@ export default class SendMailController {
         }
 
         let surveyUser = await surveyUserRepository.findOne({
-            where: [{user_id: user.id}, {value: null}],
+            where: {user_id: user.id, value: null},
             relations: ["user", "survey"]
         });
 
