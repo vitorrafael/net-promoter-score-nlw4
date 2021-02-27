@@ -30,7 +30,8 @@ export default class SendMailController {
         }
 
         let surveyUser = await surveyUserRepository.findOne({
-            where: [{user_id: user.id}, {value: null}]
+            where: [{user_id: user.id}, {value: null}],
+            relations: ["user", "survey"]
         });
 
         if (!surveyUser) {
@@ -49,7 +50,7 @@ export default class SendMailController {
             user_id: user.id,
             link: process.env.URL_MAIL
         }
-        
+
         const npsPath = path.resolve(__dirname, "..", "views", "emails", "npsMail.hbs");
         await SendMailService.execute(email, survey.title, emailVariables, npsPath);
 
