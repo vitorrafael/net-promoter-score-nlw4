@@ -39,7 +39,9 @@ export default class SendMailController {
         const emailVariables = {
             name: user.name,
             title: survey.title,
-            description: survey.description
+            description: survey.description,
+            user_id: user.id,
+            link: process.env.URL_MAIL
         }
         const npsPath = path.resolve(__dirname, "..", "views", "emails", "npsMail.hbs");
         await SendMailService.execute(email, survey.title, emailVariables, npsPath);
