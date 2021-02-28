@@ -8,7 +8,6 @@ import User from "../models/User";
 import ErrorHandler from "../errors/ErrorHandler";
 import Errors from "../enums/Errors";
 import log from "../logger";
-import AppError from "../errors/AppError";
 
 export default class UserController {
 
@@ -18,7 +17,7 @@ export default class UserController {
         this.userRepository = getCustomRepository(UserRepository);
     }
 
-    async create(request: Request, response: Response) {
+    async create(request: Request, response: Response) : Promise<Response> {
         try {
         const { name, email } = request.body;
 
@@ -38,7 +37,7 @@ export default class UserController {
         }
     }
 
-    async validateUserAlreadyExistsByEmail(email: string) {
+    async validateUserAlreadyExistsByEmail(email: string) : Promise<boolean> {
         const usersWithEmail = await this.userRepository.count({ email });
         return usersWithEmail === 0;
     }

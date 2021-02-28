@@ -5,7 +5,7 @@ import { v4 as uuid } from "uuid";
 export default class Survey {
 
     @PrimaryColumn()
-    readonly id: String;
+    readonly id: string;
 
     @Column()
     title: string;

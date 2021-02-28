@@ -4,7 +4,7 @@ import SurveyUserRepository from "../repositories/SurveyUserRepository";
 
 export default class MailAnswerController {
 
-    async execute(request: Request, response: Response) {
+    async execute(request: Request, response: Response) : Promise<Response> {
         const { value } = request.params;
         const { u: surveyUserId } = request.query;
 

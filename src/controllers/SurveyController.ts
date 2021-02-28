@@ -6,7 +6,7 @@ import SurveySchema from "../schemas/SurveySchema";
 
 export default class SurveyController {
 
-    async create(request: Request, response: Response) {
+    async create(request: Request, response: Response) : Promise<Response> {
         const { title, description } = request.body;
 
         if (!SurveySchema.isValidSync(request.body)) {
@@ -24,7 +24,7 @@ export default class SurveyController {
         return response.status(201).json(survey);
     }
 
-    async show(request: Request, response: Response) {
+    async show(request: Request, response: Response) : Promise<Response> {
 
         const surveyRepository = getCustomRepository(SurveyRepository);
 

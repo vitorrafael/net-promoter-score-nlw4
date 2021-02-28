@@ -4,7 +4,7 @@ import SurveyUserRepository from "../repositories/SurveyUserRepository";
 
 export default class NpsController {
 
-    async execute(request: Request, response: Response) {
+    async execute(request: Request, response: Response) : Promise<Response> {
         const { survey_id } = request.params;
 
         const surveyUserRepository = getCustomRepository(SurveyUserRepository);

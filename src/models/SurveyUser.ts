@@ -7,10 +7,10 @@ import User from "./User";
 export default class SurveyUser {
 
     @PrimaryColumn()
-    readonly id: String;
+    readonly id: string;
 
     @Column()
-    user_id: String;
+    user_id: string;
 
     @ManyToOne(() => User)
     @JoinColumn({ name: "user_id" })
@@ -18,7 +18,7 @@ export default class SurveyUser {
 
 
     @Column()
-    survey_id: String;
+    survey_id: string;
 
     @ManyToOne(() => Survey)
     @JoinColumn({ name: "survey_id" })

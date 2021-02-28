@@ -8,7 +8,7 @@ import path from 'path';
 
 export default class SendMailController {
 
-    async execute(request: Request, response: Response) {
+    async execute(request: Request, response: Response) : Promise<Response> {
         const { email, survey_id } = request.body;
 
         const userRepository = getCustomRepository(UserRepository);
@@ -36,8 +36,8 @@ export default class SendMailController {
 
         if (!surveyUser) {
             surveyUser = surveyUserRepository.create({
-                user_id: user.id,
-                survey_id: survey_id
+                user_id: user.id.valueOf(),
+                survey_id: survey_id.valueOf()
             });
 
             surveyUserRepository.save(surveyUser);

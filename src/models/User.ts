@@ -5,7 +5,7 @@ import { v4 as uuid } from "uuid";
 export default class User {
 
     @PrimaryColumn()
-    readonly id: String;
+    readonly id: string;
 
     @Column()
     name: string;
