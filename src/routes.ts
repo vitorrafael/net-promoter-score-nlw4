@@ -13,7 +13,7 @@ const sendMailController = new SendMailController();
 const mailAnswerController = new MailAnswerController();
 const npsController = new NpsController();
 
-router.post("/users", userController.create);
+router.post("/users", userController.create.bind(userController));
 
 router.get("/surveys", surveyController.show);
 router.post("/surveys", surveyController.create);
